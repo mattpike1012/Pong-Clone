@@ -33,7 +33,7 @@ position = Vector2(1063, 329)
 movement_up_key = "p2_up"
 movement_down_key = "p2_down"
 
-[node name="Ball" parent="." instance=ExtResource("5_htpte")]
+[node name="RigidBody2D" parent="." instance=ExtResource("5_htpte")]
 position = Vector2(576, 320)
 collision_mask = 3
 

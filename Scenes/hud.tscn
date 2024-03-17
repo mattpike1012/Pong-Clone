@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://muwidl1sxwle"]
+
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_k3rmf"]
+[ext_resource type="FontFile" uid="uid://bj4byufs2tejc" path="res://Assets/pixel_font.ttf" id="1_ngc26"]
+
+[node name="HUD" type="Node"]
+script = ExtResource("1_k3rmf")
+
+[node name="Score1" type="Label" parent="."]
+offset_left = 319.0
+offset_top = 2.0
+offset_right = 400.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("1_ngc26")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score2" type="Label" parent="."]
+offset_left = 760.0
+offset_top = 2.0
+offset_right = 841.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("1_ngc26")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerMessage" type="ColorRect" parent="."]
+visible = false
+offset_left = 328.0
+offset_top = 200.0
+offset_right = 904.0
+offset_bottom = 440.0
+color = Color(0.0509804, 0, 0.129412, 1)
+
+[node name="Message" type="Label" parent="WinnerMessage"]
+offset_top = 48.0
+offset_right = 592.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ngc26")
+theme_override_font_sizes/font_size = 64
+text = "Player 1 Wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
