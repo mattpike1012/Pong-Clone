@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlehcpaqxm485"]
+
+[ext_resource type="PackedScene" uid="uid://xlxgf75pag65" path="res://Scenes/paddle.tscn" id="1_74b1r"]
+[ext_resource type="Script" path="res://Scripts/pong.gd" id="1_xeojb"]
+[ext_resource type="Texture2D" uid="uid://dlxmumicrv4ql" path="res://Assets/Bg.png" id="2_po5l7"]
+[ext_resource type="PackedScene" uid="uid://4f5euh6acw7a" path="res://Scenes/ball.tscn" id="5_htpte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbc3h"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lqmv"]
+size = Vector2(37, 648)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_xeojb")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(576, 324)
+texture = ExtResource("2_po5l7")
+
+[node name="Player1Paddle" parent="." instance=ExtResource("1_74b1r")]
+position = Vector2(88, 320)
+collision_mask = 3
+movement_up_key = "p1_up"
+movement_down_key = "p1_down"
+
+[node name="Player2Paddle" parent="." instance=ExtResource("1_74b1r")]
+position = Vector2(1063, 329)
+movement_up_key = "p2_up"
+movement_down_key = "p2_down"
+
+[node name="RigidBody2D" parent="." instance=ExtResource("5_htpte")]
+position = Vector2(576, 320)
+collision_mask = 3
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="Bottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(576, 658)
+shape = SubResource("RectangleShape2D_qbc3h")
+
+[node name="Top" type="CollisionShape2D" parent="Borders"]
+position = Vector2(576, -10)
+shape = SubResource("RectangleShape2D_qbc3h")
+
+[node name="Player1Goal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1Goal"]
+position = Vector2(-18.5, 324)
+shape = SubResource("RectangleShape2D_6lqmv")
+
+[node name="Player2Goal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2Goal"]
+position = Vector2(1170.5, 329)
+shape = SubResource("RectangleShape2D_6lqmv")
