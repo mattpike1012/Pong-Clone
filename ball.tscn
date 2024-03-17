@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://4f5euh6acw7a"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_wfn2a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0sqkx"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5ql7"]
+size = Vector2(16, 17)
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_0sqkx")
+gravity_scale = 0.0
+script = ExtResource("1_wfn2a")
+speed = 200
+
+[node name="Line2D" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 9.0
+offset_bottom = 2.0
+scale = Vector2(0.944444, 1.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_h5ql7")
