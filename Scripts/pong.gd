@@ -1,6 +1,6 @@
 extends Node
 
-var player1_score = 10
+var player1_score = 0
 var player2_score = 0
 
 func on_countdown_finish():
