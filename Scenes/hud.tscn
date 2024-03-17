@@ -1,10 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://muwidl1sxwle"]
 
-[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_k3rmf"]
 [ext_resource type="FontFile" uid="uid://bj4byufs2tejc" path="res://Assets/pixel_font.ttf" id="1_ngc26"]
 
+[sub_resource type="GDScript" id="GDScript_3f5l1"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+func update_player_1_score(score):
+	$Score1.text = str(score)
+
+func update_player_2_score(score):
+	$Score2.text = str(score)
+"
+
 [node name="HUD" type="Node"]
-script = ExtResource("1_k3rmf")
+script = SubResource("GDScript_3f5l1")
 
 [node name="Score1" type="Label" parent="."]
 offset_left = 319.0

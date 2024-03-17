@@ -6,6 +6,7 @@ extends StaticBody2D
 
 var screen_size
 var p_size
+var can_move = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,13 +15,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed(movement_up_key):
-		velocity = Vector2.UP
-	if Input.is_action_pressed(movement_down_key):
-		velocity = Vector2.DOWN
+	if can_move:
+		var velocity = Vector2.ZERO
+		if Input.is_action_pressed(movement_up_key):
+			velocity = Vector2.UP
+		if Input.is_action_pressed(movement_down_key):
+			velocity = Vector2.DOWN
 
-	position += (velocity * speed) * delta
-	var startRange = (p_size.y / 2)
-	var endRange = (screen_size.y) - p_size.y / 2
-	position.y = clamp(position.y, startRange, endRange)
+		position += (velocity * speed) * delta
+		var startRange = (p_size.y / 2)
+		var endRange = (screen_size.y) - p_size.y / 2
+		position.y = clamp(position.y, startRange, endRange)
